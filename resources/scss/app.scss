@@ -1,0 +1,15 @@
+@use './partials/var' as *;
+@import '~bootstrap/scss/bootstrap';
+@import './partials/indexProjects';
+
+/*
+* reset rules
+*/
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    display: inline-block;
+}

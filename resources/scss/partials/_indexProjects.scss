@@ -1,0 +1,74 @@
+.section.projects {
+
+    #show-tools {
+        cursor: pointer;
+    }
+
+    .project-card {
+        background-color: $grey;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+
+        &__header {
+
+            & .title {
+                font-size: 1.3rem;
+            }
+        }
+
+        .tools {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            & > .tool {
+                animation-name: movingTools;
+                animation-iteration-count: infinite;
+                animation-duration: 1s;
+                animation-delay: 0.4ms;
+            }
+        }
+    }
+
+    .hide {
+        display: none;
+    }
+}
+
+.c-modal {
+    &.show {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    display: none;
+    position: fixed;
+    inset: 0;
+
+    &__inner {
+        backdrop-filter: blur(10px);
+        border: 2px solid $black;
+    }
+}
+
+@keyframes movingTools {
+    0% {
+        transform: rotate(0);
+    }
+
+    33% {
+        transform: rotate(-6deg);
+    }
+
+    66% {
+        transform: rotate(6deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}

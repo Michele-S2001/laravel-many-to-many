@@ -7,7 +7,7 @@
     </h2>
     <div class="row justify-content-center">
         <div class="col">
-            <div class="card">
+            <div class="card mb-3">
                 <div class="card-header">{{ __('User Dashboard') }}</div>
 
                 <div class="card-body">
@@ -22,6 +22,14 @@
             </div>
         </div>
     </div>
-    <a href="{{route('admin.projects.index')}}">All projects</a>
+    <div class="card">
+        <div class="card-header">
+            Resources
+        </div>
+        <div class="card-body">
+            <a href="{{route('admin.projects.index')}}">All projects</a>
+            <a href="{{route('admin.technologies.index')}}">All technologies</a>
+        </div>
+    </div>
 </div>
 @endsection

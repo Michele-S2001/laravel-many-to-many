@@ -28,6 +28,23 @@
                             @endforeach
                         </select>
                     </div>
+
+                    {{-- Project technologies options --}}
+                    <div class="mb-3 d-flex gap-3 flex-wrap">
+                        @foreach($techs as $tech)
+                            <input
+                                name="technologies[]"
+                                class="form-check-input"
+                                type="checkbox" value="{{$tech->id}}"
+                                id="tech-{{$tech->id}}"
+                                @checked(in_array($tech->id, old('technologies', $project->technologies->pluck('id')->all())))
+                            >
+                            <label class="form-check-label" for="tech-{{$tech->id}}">
+                                {{$tech->name}}
+                            </label>
+                        @endforeach
+                    </div>
+
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
                         <input name="title" type="text" class="form-control" id="title" placeholder="Title of the project" value="{{old('title', $project->title)}}">

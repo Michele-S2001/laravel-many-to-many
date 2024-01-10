@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreProjectRequest;
 use App\Http\Requests\Admin\UpdateProjectRequest;
 use App\Models\Project;
+use App\Models\Technology;
 use App\Models\Type;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,8 @@ class ProjectController extends Controller
     public function create()
     {
         $types = Type::all();
-        return view('admin.projects.create', compact('types'));
+        $techs = Technology::all();
+        return view('admin.projects.create', compact('types', 'techs'));
     }
 
     /**
@@ -36,6 +38,11 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
         $new_project = Project::create($data);
+
+        if($request->has('technologies')) {
+            $new_project->technologies()->attach($data['technologies']);
+        }
+
         return redirect()->route('admin.projects.show', $new_project);
     }
 

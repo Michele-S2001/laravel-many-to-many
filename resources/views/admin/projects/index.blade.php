@@ -21,7 +21,9 @@
                             </span>
                         </div>
                         <div class="project-card__body text-center">
-                            <img class="mx-auto mb-3" src="{{$project->image}}" alt="project image">
+                            @if($project->image)
+                                <img class="mx-auto mb-3" src="{{ asset('storage/' . $project->image)}}" alt="project image">
+                            @endif
                             <a class="btn btn-sm btn-primary" href="{{route('admin.projects.show', $project->id)}}">more</a>
                         </div>
                         <div class="tools d-flex justify-content-between">

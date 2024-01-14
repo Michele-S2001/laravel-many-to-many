@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <img class="mx-auto" src="{{$project->image}}" alt="project image">
+                <img class="mx-auto" src="{{ asset('storage/' . $project->image)}}" alt="project image">
             </div>
             <div class="col-6">
                 <h3>{{$project->title}}</h3>

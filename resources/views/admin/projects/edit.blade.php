@@ -17,7 +17,7 @@
                         </ul>
                     </div>
                 @endif
-                <form action="{{route('admin.projects.update', $project)}}" method="POST">
+                <form action="{{route('admin.projects.update', $project)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="mb-3">
@@ -49,9 +49,10 @@
                         <label for="title" class="form-label">Title</label>
                         <input name="title" type="text" class="form-control" id="title" placeholder="Title of the project" value="{{old('title', $project->title)}}">
                     </div>
-                    <div class="mb-3">
-                        <label for="image" class="form-label">URL image</label>
-                        <input name="image" type="text" class="form-control" id="image" placeholder="URL of the project image" value="{{old('image', $project->image)}}">
+                    {{-- Project image file --}}
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="image">Change the img</label>
+                        <input name="image" type="file" class="form-control" id="image">
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
